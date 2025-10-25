@@ -1,14 +1,18 @@
 export default function Header() {
   return (
     <>
-      <header className="fixed top-0 w-full h-20 z-20 bg-gray-300">
+      <header className="w-full h-20 bg-gray-300 flex items-center justify-around">
+        <div>
+          <h1>LOGO</h1>
+        </div>
+        <br className="flex-1"/>
         <nav>
-            <ul>
-                <li>Головна</li>
-                <li>Новити</li>
-                <li>Події</li>
-                <li>Галерея</li>
-            </ul>
+          <ul className="flex gap-5">
+            <li>Головна</li>
+            <li>Новити</li>
+            <li>Події</li>
+            <li>Галерея</li>
+          </ul>
         </nav>
       </header>
     </>
