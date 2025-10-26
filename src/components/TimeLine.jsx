@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
 
 export default function Timeline() {
   const items = [
@@ -23,90 +25,83 @@ export default function Timeline() {
       desc: "Додано інтеграцію з AI і покращений інтерфейс.",
     },
     {
-      date: "12.10.2025",
-      title: "Початок проєкту",
-      desc: "Старт досліджень та формування команди.",
-    },
-    {
-      date: "15.11.2025",
-      title: "Перша версія",
-      desc: "Випуск першого прототипу продукту.",
-    },
-    {
-      date: "01.01.2026",
-      title: "Офіційний реліз",
-      desc: "Запуск публічної версії з основними функціями.",
-    },
-    {
-      date: "10.03.2026",
-      title: "Оновлення",
-      desc: "Додано інтеграцію з AI і покращений інтерфейс.",
+      date: "20.05.2026",
+      title: "Наступний етап",
+      desc: "Покращення аналітики та звітності.",
     },
   ];
 
-  const [active, setActive] = useState(items.length-1);
-
   return (
-    <div className="w-full overflow-x-auto no-scrollbar">
-      <div className="flex flex-row-reverse items-center gap-10 px-20 py-5 min-w-max">
-        {items.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => setActive(index)}
-            className={`relative flex flex-col items-center cursor-pointer transition-transform duration-300 ${
-              active === index ? "scale-110" : "scale-90 opacity-70"
-            }`}
-          >
-            <div>
+    <div className="w-full">
+      <Swiper
+        grabCursor={true}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
+        className="w-full"
+        style={{ padding: "0px", paddingLeft: "10px" }}
+      >
+        {[...items].reverse().map((item, index) => (
+          <SwiperSlide style={{ display: "block" }} key={index}>
+            <div className="relative flex flex-col items-center cursor-pointer transition-transform duration-300">
               <img
-                src="https://placehold.co/150x100/png"
+                src="https://placehold.co/200x120/png"
                 alt=""
-                className="mb-5 rounded-lg"
+                className="mb-5 rounded-xl shadow"
               />
-            </div>
 
-            {/* Лінія між точками */}
-            {index !== items.length && (
-              <div className="absolute top-33 left-1/2 w-[140%] h-[2px] bg-gray-300 z-0 -translate-x-1/2 flex items-center justify-start">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-4 h-4 text-gray-300 -translate-x-2 rotate-180"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M13.293 4.293a1 1 0 011.414 0L21 10.586a1 1 0 010 1.414l-6.293 6.293a1 1 0 01-1.414-1.414L17.586 12H3a1 1 0 110-2h14.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+              {/* Коло + стрілка */}
+              <div className="w-full relative flex justify-center items-center">
+                {/* Коло */}
+                <div
+                  className={`z-10 rounded-full border-4 transition-all duration-300 h-6 w-6 ${
+                    index === 0
+                      ? " bg-blue-400 border-blue-300"
+                      : " bg-blue-200 border-blue-100"
+                  }`}
+                ></div>
+
+                {/* Стрілка тільки для першого */}
+                {index === 0 && (
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="size-6"
+                      className="absolute -translate-y-1/2 top-1/2 -left-2 w-5 h-5 text-gray-300"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5"
+                      />
+                    </svg>
+                  </div>
+                )}
+
+                {/* Лінія */}
+                <div className="absolute top-1/2 left-0 w-full h-[2px] bg-gray-300 z-0 -translate-y-1/2"></div>
               </div>
-            )}
 
-            {/* Коло */}
-            <div
-              className={`z-10 h-6 w-6 rounded-full border-4 transition-all duration-300 ${
-                active === index
-                  ? "bg-blue-500 border-blue-400"
-                  : "bg-gray-400 border-gray-300"
-              }`}
-            ></div>
+              {/* Дата */}
+              <p className="text-sm mt-2 text-gray-500">{item.date}</p>
 
-            {/* Дата */}
-            <p className="text-sm mt-2 text-gray-500">{item.date}</p>
-
-            {/* Контент */}
-            <div
-              className={`mt-4 text-center transition-all duration-300 ${
-                active === index ? "opacity-100" : "opacity-60"
-              }`}
-            >
-              <h3 className="font-bold text-lg">{item.title}</h3>
-              <p className="text-sm text-gray-600 max-w-[220px]">{item.desc}</p>
+              {/* Контент */}
+              <div className="mt-4 text-center">
+                <h3 className="font-bold text-lg">{item.title}</h3>
+                <p className="text-sm text-gray-600 max-w-[220px]">
+                  {item.desc}
+                </p>
+              </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 }

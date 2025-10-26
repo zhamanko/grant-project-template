@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import NewsCard from "./components/NewsCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -16,7 +16,7 @@ function App() {
       <Header />
       <main>
         {/* На проєкт */}
-        <div className="flex w-full justify-around items-center py-24 bg-gray-200">
+        <div className="flex flex-col gap-18 md:gap-0 md:flex-row w-full justify-around items-center py-24 bg-gray-200">
           <div className="text-center">
             <h2 className="text-lg">Гранотовий проєкт</h2>
             <h3 className="text-2xl">
@@ -26,7 +26,7 @@ function App() {
               за підримки <strong>НАЗВА </strong>
             </p>
           </div>
-          <div className="w-1/2">
+          <div className="w-3/4 md:w-1/2">
             <h2 className="text-center font-bold mb-5">Цілі проєкта</h2>
             <ul className="text-justify">
               <li>
@@ -117,8 +117,8 @@ function App() {
         </div>
         {/* Про проєкт */}
         <div className="bg-gray-200 py-14 flex flex-col justify-center items-center">
-          <h2 className="font-bold text-center mb-5">Про проєкт</h2>
-          <div className="w-1/2 flex flex-col gap-1">
+          <h2 className="font-bold text-center mb-5 text-lg">Про проєкт</h2>
+          <div className="w-3/4 md:w-1/2 flex flex-col gap-1">
             <p className="text-justify">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Asperiores tempore voluptate nostrum ipsam atque sit expedita eum
@@ -143,19 +143,23 @@ function App() {
           </div>
         </div>
         {/* Етапи проекту */}
-        <div className="bg-gray-100 p-8 flex flex-col items-center">
-          <h2 className="font-bold text-center mb-5">Етапи проєкту</h2>
+        <div className="bg-gray-100 py-8 flex flex-col items-center">
+          <h2 className="font-bold text-center mb-5 text-lg">Етапи проєкту</h2>
             <Timeline/>
         </div>
         {/* Інформація про організацію та підприємство */}
-        <div className="flex gap-20 bg-gray-100">
-          <div className="text-justify">
-            <h2 className="font-bold text-center">Інформація про організацію</h2>
+        <div className="flex flex-col md:flex-row gap-10 bg-gray-200 p-8">
+          <div className="text-justify bg-white p-8 rounded-xl">
+            <h2 className="font-bold text-center mb-5 text-lg">Інформація про організацію</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellendus distinctio perspiciatis explicabo eligendi quam qui architecto voluptatum magnam voluptatem, odit ad eveniet officia alias, provident exercitationem laborum. Voluptate, consequatur.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellendus distinctio perspiciatis explicabo eligendi quam qui architecto voluptatum magnam voluptatem, odit ad eveniet officia alias, provident exercitationem laborum. Voluptate, consequatur.</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellendus distinctio perspiciatis explicabo eligendi quam qui architecto voluptatum magnam voluptatem, odit ad eveniet officia alias, provident exercitationem laborum. Voluptate, consequatur.</p>
           </div>
-          <div className="text-justify">
-            <h2 className="font-bold text-center">Інформація про підримку</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut cum, quis similique animi cumque quod nihil eos eligendi et officia necessitatibus natus magnam! Facilis iure corporis aspernatur tenetur repellat commodi?</p>
+          <div className="text-justify bg-white p-8 rounded-xl">
+            <h2 className="font-bold text-center mb-5 text-lg">Інформація про підримку</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellendus distinctio perspiciatis explicabo eligendi quam qui architecto voluptatum magnam voluptatem, odit ad eveniet officia alias, provident exercitationem laborum. Voluptate, consequatur.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellendus distinctio perspiciatis explicabo eligendi quam qui architecto voluptatum magnam voluptatem, odit ad eveniet officia alias, provident exercitationem laborum. Voluptate, consequatur.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis repellendus distinctio perspiciatis explicabo eligendi quam qui architecto voluptatum magnam voluptatem, odit ad eveniet officia alias, provident exercitationem laborum. Voluptate, consequatur.</p>
           </div>
         </div>
       </main>
