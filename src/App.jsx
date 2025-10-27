@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import NewsCard from "./components/NewsCard";
+import Footer from "./components/Footer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination} from "swiper/modules";
@@ -163,6 +164,7 @@ function App() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
