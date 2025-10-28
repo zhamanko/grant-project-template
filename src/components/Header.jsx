@@ -5,7 +5,7 @@ import MobileMenu from "./MenuBar.jsx";
 export default function Header() {
   return (
     <>
-      <header className="w-full h-20 bg-gray-300 flex items-center justify-around">
+      <header className="relative w-full h-20 bg-gray-300 flex items-center justify-around">
         <div>
           <h1 className="font-bold">LOGO</h1>
         </div>

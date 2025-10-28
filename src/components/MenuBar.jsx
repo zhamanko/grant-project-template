@@ -14,7 +14,7 @@ export default function MobileMenu() {
       {/* Бургер-кнопка */}
       <button
         onClick={() => setOpen(!open)}
-        className="md:hidden w-7 h-6 flex flex-col justify-center items-center fixed top-7 right-5 z-[60] cursor-pointer"
+        className="md:hidden w-7 h-6 flex flex-col justify-center items-center absolute top-7 right-10 z-[60] cursor-pointer"
       >
         <span
           className={`absolute block w-7 h-[2px] bg-gray-700 transition-all duration-300 ${
