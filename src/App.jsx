@@ -11,7 +11,7 @@ export default function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="grant-project-template/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/news" element={<News />} />
       </Routes>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -49,15 +49,27 @@ export default function MobileMenu() {
       >
         <nav className="mt-20">
           <ul className="flex flex-col items-center text-lg gap-6">
-            <Link onClick={() => setOpen(false)} to="/">
+            <NavLink onClick={() => setOpen(false)} to="grant-project-template/" className={({ isActive }) =>
+              isActive
+                ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                : "hover:text-blue-600"
+            }>
               Головна
-            </Link>
-            <Link onClick={() => setOpen(false)} to="/news">
+            </NavLink>
+            <NavLink onClick={() => setOpen(false)} to="/news" className={({ isActive }) =>
+              isActive
+                ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                : "hover:text-blue-600"
+            }>
               Новини
-            </Link>
-            <Link onClick={() => setOpen(false)} to="/gallery">
+            </NavLink>
+            <NavLink onClick={() => setOpen(false)} to="/gallery" className={({ isActive }) =>
+              isActive
+                ? "text-blue-600 font-semibold border-b-2 border-blue-600 pb-1"
+                : "hover:text-blue-600"
+            }>
               Галерея
-            </Link>
+            </NavLink>
           </ul>
         </nav>
       </div>
